@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/modeloSistema.xhtml">
+
+	<ui:define name="menu">
+		<ui:include src="/includes/menu.xhtml" />
+	</ui:define>
+	<ui:define name="conteudo">
+		<f:facet id="title" name="header">Cadastro de Tarefas</f:facet>
+
+		<h:form>
+
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="Nome: " />
+				<p:inputText value="#{MBTarefa.tarefa.nome}" />
+
+				<p:outputLabel for="button" value="Data: " />
+				<p:calendar id="button" value="#{MBTarefa.tarefa.data}"
+					showOn="button" />
+
+				<p:outputLabel value="Observação: " />
+				<p:inputTextarea rows="5" cols="30" counter="display"
+					maxlength="100" counterTemplate="{0} caracteres restantes.\"
+					autoResize="false" value="#{MBTarefa.tarefa.descricao}" />
+				<h:outputText id="display" />
+
+				<h:outputText value="Adicionar ao grupo? " />
+				<p:selectBooleanButton id="value2"
+					value="#{MBTarefa.addToGroup}" onLabel="Sim" offLabel="Não"
+					onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:60px">
+				</p:selectBooleanButton>
+
+			</h:panelGrid>
+
+			<p:commandButton value="Save" action="#{MBTarefa.cadastraTarefa}" />
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

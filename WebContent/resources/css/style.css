@@ -1,0 +1,76 @@
+@CHARSET "ISO-8859-1";
+
+.login #topo {
+	display: none;
+}
+
+.login #topo {
+	display: none;
+}
+
+#login{
+	margin-left: 41%;
+    margin-top: 15%;
+}
+
+.titulos{
+	font-size: xx-large;
+    /*margin-left: 32%;*/
+}
+
+.ui-button{
+	padding: 5px;
+    position: absolute;
+    margin: 5px 10px;
+    background-color: darkgrey;
+}
+
+
+.ui-link .linkLogin{
+	margin-left: 65px;
+}
+
+.ui-layout-north {
+	z-index: 20 !important;
+	overflow: visible !important;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+
+.ui-widget, .ui-widget .ui-widget {
+	font-size: 95% !important;
+}
+
+.ui-menu .ui-menuitem-text{
+	padding: inherit;
+}
+.ui-menu .ui-menuitem-link{
+	font-size: larger;
+}
+.ui-paginator.ui-paginator-bottom{
+	display:none;
+}
+.ui-paginator.ui-paginator-top{
+	display:none;
+}
+
+.ui-datatable .ui-datatable-header{
+	margin-top: 15px;
+	font-size: 18px;
+}
+
+.ui-datatable .ui-sortable-column{
+	padding: 10px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	font-size: 13px;
+	padding-bottom: 4px;
+}
+
+.ui-widget-header {
+	font-size: 40px;
+    text-align: center;
+}

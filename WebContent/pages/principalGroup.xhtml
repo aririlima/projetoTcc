@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/modeloSistema.xhtml">
+
+	<ui:define name="menu">
+		<ui:include src="/includes/menu.xhtml" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+	
+		<f:facet id="title" name="header">
+			<h:outputText class="titulos" emptyMessage="Ainda não se encontra em um grupo" value="Grupo: #{MBGroup.nomeDoGrupo()}" />
+		</f:facet>
+	
+			<h:form id="frmMembros">
+
+				<p:dataTable id="tbMembros"
+					emptyMessage="Nenhum registro encontrado!" var="item3"
+					value="#{MBGroup.getMembros()}">
+	
+					<f:facet id="title" name="header">Membros</f:facet>
+	
+					<p:column headerText="Nome">
+						<h:outputText value="#{item3.nome}" />
+					</p:column>
+	
+				</p:dataTable>
+			</h:form>
+		
+	
+		<h:form id="frmTarefas">
+
+			<p:dataTable id="tbTarefas"
+				emptyMessage="Nenhum registro encontrado!" var="item1"
+				value="#{MBTarefa.buscarPorGroupId()}">
+
+				<f:facet id="title" name="header">Tarefas</f:facet>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{item1.nome}" />
+				</p:column>
+
+				<p:column headerText="Descrição">
+					<h:outputText value="#{item1.descricao}" />
+				</p:column>
+
+				<p:column headerText="Data">
+					<h:outputText value="#{item1.data}" />
+				</p:column>
+				
+				<p:column headerText="Status">
+					<h:outputText value="#{item1.status}" />
+				</p:column>
+
+				<p:column headerText="Concluir">	
+					<p:commandLink  actionListener="#{MBTarefa.excluirTarefa(item1)}" ajax="false">
+						<h:outputText value="Concluir" />
+					</p:commandLink>
+				</p:column>
+
+
+			</p:dataTable>
+		</h:form>
+
+
+
+
+
+		<h:form id="frmDespesas">
+
+			<p:dataTable id="tbDespesas"
+				emptyMessage="Nenhum registro encontrado!" var="item2"
+				value="#{MBDespesa.buscarPorGroupId()}">
+
+				<f:facet id="title" name="header">Despesas</f:facet>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{item2.nome}" />
+				</p:column>
+
+				<p:column headerText="Observação">
+					<h:outputText value="#{item2.obs}" />
+				</p:column>
+
+				<p:column headerText="Valor">
+					<h:outputText value="#{item2.valor}" />
+				</p:column>
+
+				<p:column headerText="Vencimento">
+					<h:outputText value="#{item2.vencimento}" />
+				</p:column>
+				
+				<p:column headerText="Status">
+					<h:outputText value="#{item2.status}" />
+				</p:column>
+				
+				<p:column headerText="Concluir">
+					<p:commandLink actionListener="#{MBDespesa.excluiDespesa(item2)}" ajax="false">
+						<h:outputText value="Concluir" />
+					</p:commandLink>
+				</p:column>
+
+
+			</p:dataTable>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

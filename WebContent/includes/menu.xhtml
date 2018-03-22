@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:form>
+
+		<p:menubar>
+
+			<p:menuitem value="Board Pessoal" url="/pages/principal.xhtml" />
+			<p:menuitem value="Board do Grupo" url="/pages/principalGroup.xhtml" />
+
+
+			<p:submenu label="Ações">
+				<p:menuitem value="Cadastrar Despesa" outcome="/pages/addDespesa.xhtml" />
+				<p:menuitem value="Cadastrar Tarefa" outcome="/pages/addTarefa.xhtml" />
+			</p:submenu>
+			
+			<p:submenu label="Grupo">
+				<p:menuitem value="Criar Grupo" url="/pages/criaGroup.xhtml" />
+				<p:menuitem value="Adicionar Membro" url="/pages/addMembro.xhtml" />
+				<p:menuitem value="Deixar Grupo" action="#{MBGroup.deixarGrupo()}" icon="ui-icon-close" />
+			</p:submenu>
+						
+			<p:menuitem value="Sair" action="#{MBUser.logout()}" icon="ui-icon-close" />			
+
+		</p:menubar>
+	</h:form>
+
+</ui:composition>

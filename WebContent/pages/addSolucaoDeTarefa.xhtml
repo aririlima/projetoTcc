@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/modeloSistema.xhtml">
+
+	<ui:define name="menu">
+		<ui:include src="/includes/menu.xhtml" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<f:facet id="title" name="header">Conclusão de Tarefa</f:facet>
+
+<h:form>
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <p:panel>
+        <h:panelGrid columns="2" cellpadding="5">
+ 
+            <p:outputLabel value="Tarefas: " />
+            <p:selectOneMenu  var="item1"
+				value="#{buscarPorUserId}" style="width:150px">
+                <f:selectItem itemLabel="selecione" itemValue="" noSelectionOption="true"/>
+                <f:selectItems value="#{buscarPorUserId}" />
+            </p:selectOneMenu>
+
+			</h:panelGrid>
+  
+        <p:commandButton value="Concluir" actionListener="#{MBTarefa.excluirTarefa}" icon="ui-icon-check" />
+    </p:panel>
+</h:form>
+
+	</ui:define>
+</ui:composition>
